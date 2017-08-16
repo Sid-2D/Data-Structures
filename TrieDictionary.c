@@ -1,4 +1,8 @@
+// Problem link: http://www.spoj.com/problems/DICT/
+
 #include <stdio.h>
+#include <stdlib.h>
+
 typedef struct node n;
 struct node {
 	n *a[26];	
