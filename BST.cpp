@@ -72,12 +72,37 @@ void inorderRecursion(n *root) {
 	}
 }
 
+void preorderRecursion(n *root) {
+	cout << root -> data << " ";
+	if (root -> left != NULL) {
+		inorderRecursion(root -> left);
+	}
+	if (root -> right != NULL) {
+		inorderRecursion(root -> right);
+	}
+}
+
+void postorderRecursion(n *root) {
+	if (root -> left != NULL) {
+		inorderRecursion(root -> left);
+	}
+	if (root -> right != NULL) {
+		inorderRecursion(root -> right);
+	}
+	cout << root -> data << " ";
+}
+
 int main() {
 	int arr[] = {1, 2, 4, 5};
 	root = init(3);
 	for (int i = 0; i < 4; i++) {
 		insert(arr[i]);
 	}
+	cout << "Inorder:\n"; 
 	inorderRecursion(root);
+	cout << "\nPreorder:\n"; 
+	preorderRecursion(root);
+	cout << "\nPostorder:\n"; 
+	postorderRecursion(root);
 	return 0;
 }
