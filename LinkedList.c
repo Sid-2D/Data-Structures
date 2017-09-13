@@ -43,6 +43,19 @@ int floydCycle(n *list) {
    return 0;
 }
 
+void reverse(n *root) {
+	n *prev = NULL, *cur = root, *next = root -> next;
+	while (cur != NULL) {
+		// printf("%d", cur -> data);
+		next = cur -> next;
+		cur -> next = prev;
+		prev = cur;
+		cur = next;
+	}
+	root = prev;
+	display(root);
+}
+
 int main() {
 	// No loops
 	int i, arr[] = {1, 2, 3, 4, 5};
@@ -53,6 +66,8 @@ int main() {
 		temp = temp -> next;
 	}
 	display(root);
+	reverse(root);
+	// display(root);
 	if (!floydCycle(root)) {
 		printf("Does not contain a loop\n");
 	} else {
